@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="O. Kalu">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>eLibrary - a demo spring boot webapp</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a style="padding-right: 2em;" class="navbar-brand" href="/">Kuylim Tith's eRgistrar</a>
+    <!--<span style="color: #ffffff;"> &nbsp; | &nbsp;</span>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                <!--                <a class="nav-link" href="/elibrary/book/list">Add New Student</a>-->
+<!--                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewStudent"-->
+<!--                        data-whatever="@mdo">Add New Student</button>-->
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <!--            <a style="color: #ffffff; margin-right: 0em;" class="nav-link" href="#">John Doe</a>-->
+            <a href="#" class="btn btn-secondary">Search</a>
+        </form>
+    </div>
+</nav>
+
+<p>&nbsp;</p>
+<div class="container">
+    <h3>Welcome to the eRegistrar of MIU</h3>
+    <hr/>
+    <form method="post" th:object="${student}" th:action="@{/save}">
+        <div class="form-group">
+            <label for="student-number" class="col-form-label">Student Number:</label>
+            <input type="text" class="form-control" id="student-number" name="studentNumber" th:field="*{studentNumber}">
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="col-form-label">Firstname:</label>
+            <input type="text" class="form-control" id="firstname" th:field="*{firstName}">
+        </div>
+        <div class="form-group">
+            <label for="middlename" class="col-form-label">Middle Name:</label>
+            <input type="text" class="form-control" id="middlename" th:field="*{middleName}">
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="col-form-label">Lastname:</label>
+            <input type="text" class="form-control" id="lastname" th:field="*{lastName}">
+        </div>
+        <div class="form-group">
+            <label for="cgpa" class="col-form-label">Cgpa:</label>
+            <input type="number" class="form-control" id="cgpa" th:field="*{cgpa}">
+        </div>
+        <div class="form-group">
+            <label for="enrollment-date" class="col-form-label">Enrollment Date:</label>
+            <input type="date" class="form-control" id="enrollment-date" th:field="*{enrollmentDate}">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label">International:</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option1" name="option1" class="custom-control-input" value="true"
+                       th:field="*{isInternational}">
+                <label class="custom-control-label" for="option1">Yes</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option2" name="option2" class="custom-control-input" value="false"
+                       th:field="*{isInternational}">
+                <label class="custom-control-label" for="option2">No</label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+</div>
+
+<!--     <footer class="footer">
+        <div class="container">
+            <span class="text-muted">O. Kalu : : : CS425-SWE</span><span style="float:right;" class="text-muted">&copy; November 2018</span>
+        </div>
+    </footer> -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+</body>
+</html>
